@@ -22,4 +22,8 @@ public class QueueRegisterImpl {
     public long loadQueueCountWithoutMe(String queueId) {
         return queueRegister.loadQueueCountWithoutMe(queueId);
     }
+
+    public int leaveQueueById(String queueId) {
+        return queueRegister.leaveQueueById(queueId);
+    }
 }

@@ -30,4 +30,9 @@ public class QueueRegisterController {
     public long loadQueueCountWithoutMe(@RequestBody String queueId) {
         return queueRegister.loadQueueCountWithoutMe(queueId);
     }
+
+    @PostMapping("/leave-queue-by-id/queueId")
+    public int leaveQueueById(@RequestBody String queueId) {
+        return queueRegister.leaveQueueById(queueId);
+    }
 }
