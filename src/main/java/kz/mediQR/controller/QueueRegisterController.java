@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class QueueRegisterController {
 
     private final QueueRegisterImpl queueRegister;
@@ -15,9 +16,18 @@ public class QueueRegisterController {
         this.queueRegister = queueRegister;
     }
 
-    @CrossOrigin("http://localhost:4200")
     @PostMapping("/addQueue/queue")
     public int addQueue(@RequestBody Queue queue) {
         return queueRegister.addQueue(queue);
+    }
+
+    @PostMapping("/load-queue-count")
+    public long loadQueueCount() {
+        return queueRegister.loadQueueCount();
+    }
+
+    @PostMapping("/load-queue-count-without-me/queueId")
+    public long loadQueueCountWithoutMe(@RequestBody String queueId) {
+        return queueRegister.loadQueueCountWithoutMe(queueId);
     }
 }

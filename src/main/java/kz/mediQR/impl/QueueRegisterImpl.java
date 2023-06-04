@@ -14,4 +14,12 @@ public class QueueRegisterImpl {
     public int addQueue(Queue queue) {
         return queueRegister.addQueue(queue);
     }
+
+    public long loadQueueCount() {
+        return queueRegister.loadQueueCount();
+    }
+
+    public long loadQueueCountWithoutMe(String queueId) {
+        return queueRegister.loadQueueCountWithoutMe(queueId);
+    }
 }
