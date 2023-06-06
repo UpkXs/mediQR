@@ -40,4 +40,10 @@ public class QueueRegisterImpl {
     public int setIsYourTurnTrue(long queueNumber) {
         return queueRegister.setIsYourTurnTrue(queueNumber);
     }
- }
+
+    public void removeQueuesByNumber(List<Long> queueNumbers) {
+        queueNumbers.forEach((queueNumber) -> {
+            queueRegister.removeQueuesByNumber(queueNumber);
+        });
+    }
+}

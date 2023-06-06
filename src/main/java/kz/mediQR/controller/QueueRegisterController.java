@@ -52,4 +52,9 @@ public class QueueRegisterController {
     public int setIsYourTurnTrue(@RequestBody long queueNumber) {
         return queueRegister.setIsYourTurnTrue(queueNumber);
     }
+
+    @PostMapping("/remove-queues-by-number/queueNumbers")
+    public void removeQueuesByNumber(@RequestBody List<Long> queueNumbers) {
+        queueRegister.removeQueuesByNumber(queueNumbers);
+    }
 }

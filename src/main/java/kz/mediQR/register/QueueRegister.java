@@ -47,11 +47,16 @@ public interface QueueRegister extends JpaRepository<Queue, Long> {
     @Transactional
     int leaveQueueByNumber(@Param("queueNumber") long queueNumber);
 
-    @Query(value = "select * from queue where is_leaved = false and is_your_turn = false", nativeQuery = true)
+    @Query(value = "select * from queue where is_leaved = false", nativeQuery = true)
     List<Queue> loadAllQueue();
 
     @Modifying
     @Query(value = "update queue set is_your_turn = true where queue_number = :queueNumber", nativeQuery = true)
     @Transactional
     int setIsYourTurnTrue(long queueNumber);
+
+    @Modifying
+    @Query(value = "update queue set is_leaved = true where queue_number = :queueNumber", nativeQuery = true)
+    @Transactional
+    void removeQueuesByNumber(long queueNumber);
 }
