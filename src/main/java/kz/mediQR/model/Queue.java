@@ -35,4 +35,7 @@ public class Queue {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
     private int orderIndex;
+
+    @NotBlank
+    private boolean isYourTurn;
 }

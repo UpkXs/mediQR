@@ -5,6 +5,8 @@ import kz.mediQR.register.QueueRegister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class QueueRegisterImpl {
 
@@ -26,4 +28,16 @@ public class QueueRegisterImpl {
     public int leaveQueueById(String queueId) {
         return queueRegister.leaveQueueById(queueId);
     }
-}
+
+    public int leaveQueueByNumber(long queueNumber) {
+        return queueRegister.leaveQueueByNumber(queueNumber);
+    }
+
+    public List<Queue> loadAllQueue() {
+        return queueRegister.loadAllQueue();
+    }
+
+    public int setIsYourTurnTrue(long queueNumber) {
+        return queueRegister.setIsYourTurnTrue(queueNumber);
+    }
+ }
