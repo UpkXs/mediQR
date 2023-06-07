@@ -62,4 +62,9 @@ public class QueueRegisterController {
     public long loadAllQueueCount() {
         return queueRegister.loadAllQueueCount();
     }
+
+    @PostMapping("/load-front-me-queue-count-without-me/queueId")
+    public long loadFrontMeQueueCountWithoutMe(@RequestBody String queueId) {
+        return queueRegister.loadFrontMeQueueCountWithoutMe(queueId);
+    }
 }

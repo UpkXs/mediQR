@@ -50,4 +50,16 @@ public class QueueRegisterImpl {
     public long loadAllQueueCount() {
         return queueRegister.loadAllQueueCount();
     }
+
+    public long loadFrontMeQueueCountWithoutMe(String queueId) {
+        System.out.println("5Lw2vlL2 :: queueId :  " + queueId);
+        if (queueId.isEmpty()) {
+            System.out.println("5Lw2vlL2 :: queueId :  " + queueId);
+            return 0;
+        }
+
+        long orderIndex = queueRegister.getQueueOrderIndexById(queueId);
+
+        return queueRegister.loadFrontMeQueueCountWithoutMe(queueId, orderIndex);
+    }
 }
