@@ -67,4 +67,14 @@ public class QueueRegisterController {
     public long loadFrontMeQueueCountWithoutMe(@RequestBody String queueId) {
         return queueRegister.loadFrontMeQueueCountWithoutMe(queueId);
     }
+
+    @PostMapping("/get-is-your-turn/queueId")
+    public boolean getItsYourTurn(@RequestBody String queueId) {
+        return queueRegister.getItsYourTurn(queueId);
+    }
+
+    @PostMapping("/get-is-leaved/queueId")
+    public boolean getIsLeaved(@RequestBody String queueId) {
+        return queueRegister.getIsLeaved(queueId);
+    }
 }

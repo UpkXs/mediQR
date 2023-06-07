@@ -62,4 +62,12 @@ public class QueueRegisterImpl {
 
         return queueRegister.loadFrontMeQueueCountWithoutMe(queueId, orderIndex);
     }
+
+    public boolean getItsYourTurn(String queueId) {
+        return queueRegister.getItsYourTurn(queueId);
+    }
+
+    public boolean getIsLeaved(String queueId) {
+        return queueRegister.getIsLeaved(queueId);
+    }
 }

@@ -68,4 +68,10 @@ public interface QueueRegister extends JpaRepository<Queue, Long> {
 
     @Query(value = "select count(*) from queue where is_leaved = false and is_your_turn = false and queue_id != :queueId and order_index < :orderIndex", nativeQuery = true)
     long loadFrontMeQueueCountWithoutMe(String queueId, long orderIndex);
+
+    @Query(value = "select is_your_turn from queue where queue_id = :queueId", nativeQuery = true)
+    boolean getItsYourTurn(String queueId);
+
+    @Query(value = "select is_leaved from queue where queue_id = :queueId", nativeQuery = true)
+    boolean getIsLeaved(String queueId);
 }
