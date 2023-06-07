@@ -57,4 +57,9 @@ public class QueueRegisterController {
     public void removeQueuesByNumber(@RequestBody List<Long> queueNumbers) {
         queueRegister.removeQueuesByNumber(queueNumbers);
     }
+
+    @PostMapping("/load-all-queue-count")
+    public long loadAllQueueCount() {
+        return queueRegister.loadAllQueueCount();
+    }
 }

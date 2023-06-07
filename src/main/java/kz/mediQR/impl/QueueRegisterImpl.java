@@ -46,4 +46,8 @@ public class QueueRegisterImpl {
             queueRegister.removeQueuesByNumber(queueNumber);
         });
     }
+
+    public long loadAllQueueCount() {
+        return queueRegister.loadAllQueueCount();
+    }
 }

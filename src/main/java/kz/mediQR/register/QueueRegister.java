@@ -59,4 +59,7 @@ public interface QueueRegister extends JpaRepository<Queue, Long> {
     @Query(value = "update queue set is_leaved = true where queue_number = :queueNumber", nativeQuery = true)
     @Transactional
     void removeQueuesByNumber(long queueNumber);
+
+    @Query(value = "select count(*) from queue", nativeQuery = true)
+    long loadAllQueueCount();
 }
