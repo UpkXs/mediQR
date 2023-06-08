@@ -34,4 +34,7 @@ public interface RoomRegister extends JpaRepository<Room, Long> {
     @Transactional
     int addRoom(@Param("room") Room room);
 
+    @Query(value = "select verification_code from room where room_number = :roomNumber", nativeQuery = true)
+    String getVerificationCode(@Param("roomNumber") String roomNumber);
+
 }
