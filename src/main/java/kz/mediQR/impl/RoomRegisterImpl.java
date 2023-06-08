@@ -17,15 +17,25 @@ public class RoomRegisterImpl {
     @Autowired
     private RoomLinksRegister roomLinksRegister;
 
+    public Room getRoomByVerificationCode(String verificationCode) {
+        return roomRegister.getRoomByVerificationCode(verificationCode);
+    }
+
     public int addRoom(Room room) {
+        System.out.println("6W648I4P :: room : " + room.getPhoneNumber());
         roomRegister.addRoom(room);
+        System.out.println("08d3pKHf :: room : " + room.getVerificationCode());
 
 
-        String verificationCode = getVerificationCode(room.getVerificationCode());
+        String verificationCode = getVerificationCode(room.getRoomNumber());
+        System.out.println("A6YRXQIZ :: room : " + verificationCode);
 
         RoomLinks roomLinks = generateRoomLinks(verificationCode);
+        System.out.println("QMBsif39 :: room : " + room.getName());
+
 
         addRoomLinks(roomLinks);
+        System.out.println("6utxRrDK :: room : " + room.getSurname());
 
         return 1;
     }
@@ -49,7 +59,7 @@ public class RoomRegisterImpl {
         return roomLinksRegister.addRoomLinks(roomLinks);
     }
 
-    public String getVerificationCode(String roomNumber) {
+    public String getVerificationCode(long roomNumber) {
         return roomRegister.getVerificationCode(roomNumber);
     }
 

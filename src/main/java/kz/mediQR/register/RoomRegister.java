@@ -2,6 +2,7 @@ package kz.mediQR.register;
 
 import kz.mediQR.model.Queue;
 import kz.mediQR.model.Room;
+import kz.mediQR.model.RoomLinks;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -35,6 +36,9 @@ public interface RoomRegister extends JpaRepository<Room, Long> {
     int addRoom(@Param("room") Room room);
 
     @Query(value = "select verification_code from room where room_number = :roomNumber", nativeQuery = true)
-    String getVerificationCode(@Param("roomNumber") String roomNumber);
+    String getVerificationCode(@Param("roomNumber") long roomNumber);
+
+    @Query(value = "select * from room where verification_code = :verificationCode", nativeQuery = true)
+    Room getRoomByVerificationCode(@Param("verificationCode") String verificationCode);
 
 }

@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "queue")
+@Table(name = "room_links")
 public class RoomLinks {
     @Id
     private String verificationCode;

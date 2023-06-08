@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface RoomLinksRegister extends JpaRepository<RoomLinks, Long> {
 
     @Modifying
-    @Query(value = "insert into queue (verification_code, " +
+    @Query(value = "insert into room_links (verification_code, " +
             "qr_link, " +
             "qr_poster, " +
             "room_link)" +
@@ -23,6 +23,6 @@ public interface RoomLinksRegister extends JpaRepository<RoomLinks, Long> {
     @Transactional
     int addRoomLinks(@Param("roomLinks") RoomLinks roomLinks);
 
-    @Query(value = "select * from roomLinks where verification_code = :verificationCode", nativeQuery = true)
+    @Query(value = "select * from room_links where verification_code = :verificationCode", nativeQuery = true)
     RoomLinks getRoomLinksByVerificationCode(@Param("verificationCode") String verificationCode);
 }

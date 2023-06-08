@@ -2,6 +2,7 @@ package kz.mediQR.controller;
 
 import kz.mediQR.impl.RoomRegisterImpl;
 import kz.mediQR.model.Room;
+import kz.mediQR.model.RoomLinks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,5 +23,10 @@ public class RoomController {
     @PostMapping("/addRoom/room")
     public int addRoom(@RequestBody Room room) {
         return roomRegister.addRoom(room);
+    }
+
+    @PostMapping("/get-room-by-verification-code/verificationCode")
+    public Room getRoomLinksByVerificationCode(@RequestBody String verificationCode) {
+        return roomRegister.getRoomByVerificationCode(verificationCode);
     }
 }
